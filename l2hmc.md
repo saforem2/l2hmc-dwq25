@@ -25,7 +25,7 @@ output:
 &nbsp;
 
 ### Accelerated Sampling Techniques
-#### in Lattice Gauge Theory
+#### for Lattice Gauge Theory
 
 [BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
 <br>
@@ -33,12 +33,12 @@ December, 2021
 <br>
 <br>
 
-[**Sam Foreman**](https://www.samforeman.me)
+#### [**Sam Foreman**](https://www.samforeman.me)
 
 <br>
 
 <small>[1] [arXiv: 2105.03418](https://arxiv.org/abs/2105.03418), 
-   [2] [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582)
+   [2] [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582), 
  [3] [arXiv: 2112.01586](https://arxiv.org/abs/2112.01586)</small>
 </small>
 
@@ -80,22 +80,25 @@ December, 2021
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
-<div id='dark'>
+<div id='dark' style="vertical-align:center;">
 
 
-## Motivation
+# Motivation
 
 - Want to calculate observables
+
   $$ \langle \mathcal{O}\rangle\propto\int\left[\mathcal{D}x\right]\mathcal{O}(x)e^{-S(x)} $$
-- If we had _independent configurations_, we could approximate the integral as
+
+- If we had <span id="red">_independent configurations_,</span> we could approximate the integral as
   $$ \langle\mathcal{O}\rangle\simeq\frac{1}{N}\sum_{n=1}^{N}\mathcal{O}(x_{n})\Rightarrow \sigma^{2}=\frac{1}{N}\text{Var}\left[\mathcal{O}(x)\right] $$
 
 ---
+
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
-## Motivation
+# Motivation
 
 <span style="font-size:0.8em;">
 
@@ -130,19 +133,24 @@ December, 2021
   ![](assets/single_chain.svg)
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
 
 # <span style="color: #3B4CC0;">Critical Slowing Down</span>
 
 <div class="row">
 
-<div class="column" style="width: 40%; font-size: 85%;">
+<div class="column" style="width: 40%; font-size: 100%;">
 
-- Generating independent configurations is currently a major bottleneck for lattice QCD.
+<!-- - Generating independent configurations is currently a major bottleneck for lattice QCD. -->
 
-- As $\beta\rightarrow \infty$, configurations get stuck in sectors of fixed gauge topology $Q = \text{ const. }$ 
+- As <span id="red">$\beta\rightarrow \infty$</span>, configurations get stuck in sectors of fixed gauge topology $Q = \text{ const. }$ 
 
-  - $\Rightarrow$ \# of configurations required to reliably estimate errors <span id="red">**increases exponentially**</span> 
-  - $\tau_{\mathrm{int}} \rightarrow \infty$
+- \# of configurations required to reliably estimate errors **increases exponentially**
+
+<span id="red"> $$\tau_{\mathrm{int}} \longrightarrow \infty$$ </span>
+<!-- <div id="note" style="width:40%;"> <span style="color: #BC032B;"> $$\tau_{\mathrm{int}} \rightarrow \infty$$ </span></div> -->
 
 </div>
 
@@ -166,6 +174,9 @@ December, 2021
 <iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="95%" height="300px" -->
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
 
 # Issues with HMC
 	
@@ -179,8 +190,7 @@ December, 2021
 ![](assets/hmc_traj_eps05.svg) <!-- .element width="49%" -->
 ![](assets/hmc_traj_eps025.svg) <!-- .element width="49%" -->
 
----
-
+<!--
 # Leapfrog Layer
 
 <div id="left" style="width:40%; align:center; font-size:0.9em; text-align: left;">
@@ -193,9 +203,10 @@ December, 2021
 
 &nbsp;
 
-![](assets/leapfrog_layer.svg) <!-- .element width="55%" align="center" -->
+![](assets/leapfrog_layer.svg) 
 
 ![](assets/network_functions.svg)
+-->
 
 
 ---
@@ -205,18 +216,18 @@ December, 2021
 
 ## Leapfrog Layer
 
-<div id="left" style="width:40%; align:center; font-size:0.66em; text-align: left;">
+<div id="left" style="width:38%; align:center; font-size:0.60em; text-align: left;">
 
-### <u>L2HMC Update</u>:
+#### <span id="bright"><u>L2HMC Update:</u></span>
 1. Update $\mathbf{v}$:
 
     - `\(\mathbf{v}'= \Gamma^{\pm}[\mathbf{v}; \zeta_{\mathbf{v}}]\)`
 
-2. Update <span id="red">half</span> of `\(\mathbf{x}\)` via <span id="red"> `\(\mathbf{x}_{\bar{m}}\)`</span>:
+2. Update half of `\(\mathbf{x}\)` via <span id="red"> `\(\mathbf{x}_{\bar{m}}\)`</span>:
 
     - `\(\mathbf{x}' = \)` <span id="blue">`\(\mathbf{x}_{m} \)`</span>`\(+ \Lambda^{\pm}[\)`<span id="red">`\(\mathbf{x}_{\bar{m}}\)`</span>`\(; \zeta_{\mathbf{x}}]\)`
 
-3. Update <span id="blue">(other) half</span> of `\(\mathbf{x}\)` via <span id="blue"> `\(\mathbf{x}_{k}'\)`</span> :
+3. Update (other) half of `\(\mathbf{x}\)` via <span id="blue"> `\(\mathbf{x}_{m}'\)`</span> :
 
     - `\(\mathbf{x}'' = \)` <span id="red">`\(\mathbf{x}_{\bar{m}} \)`</span>`\(+ \Lambda^{\pm}[\)`<span id="blue">`\(\mathbf{x}_{m}'\)`</span>`\(; \zeta_{\mathbf{x}'}]\)`
 
@@ -228,57 +239,88 @@ December, 2021
 
 <br>
 
-![](assets/leapfrog_layer_dark2.svg) <!-- .element width="58%" -->
+![](assets/leapfrog_layer_dark2.svg) <!-- .element width="60%" -->
 ![](assets/network_functions_dark.drawio.svg) <!-- .element width="100%" align="center" -->
 
 
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
 
 ## Toy Example: GMM $\in \mathbb{R}^{2}$
 
 ![](assets/iso_gmm_chains.svg)
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
 
 # Lattice Gauge Theory
-	
-<div id="left" class="float:left" style="padding-left:20px; text-align:left; max-width=30%;">
+
+<div class="row">
+
+<div class="column" style="width: 40%; font-size: 90%;">
 
 - <b>Link variables</b>: 
-  $\color{#228BE6}{U_{\mu}(x) = e^{i x_{\mu}(n)}\in U(1)}$
+  - $U_{\mu}(x) = e^{i x_{\mu}(n)}\in U(1)$
+  - with <span id="blue">$x_{\mu}(n)\in[-\pi,\pi]$</span>
 
-  with <span style="font-size:0.9em;">$x_{\mu}(n)\in[-\pi,\pi]$</span>
-
-
-- <b>Wilson Action</b>: $\color{#228BE6}{S_{\beta}(x) = \beta\sum_{P} 1 - \cos x_{P}}$,
-	
+- <b>Wilson Action</b>: 
+  - <span id="blue">$S_{\beta}(x) = \beta\sum_{P} 1 - \cos x_{P}$</span>,
   <span style="font-size:0.8em;">$x_{P}= x_{\mu}(n) + x_{\nu}(n+\hat{\mu})-x_{\mu}(n+\hat{\nu})-x_{\nu}(n)$</span>
-	
-</div>
-	
-<div id="right" style="width=40%;">
-
-![](assets/plaq_tikz.svg) <!-- .element align="right" width="70%" -->
 
 </div>
 
-<div class="float:left" style="padding-left:20px; width=100%; text-align:left;">
+<div class="column" style="width:45%;">
+
+![](assets/plaq_tikz.svg) <!-- .element height="240px" -->
+
+</div>
+
+</div>
+
+<div class="row">
 
 - <b>Topological Charge</b>:
 
-  <span id="note" style="padding:10px;background:#D0F3D5;">✅ $Q_{\mathbb{R}} = \frac{1}{2\pi}\sum_{P} \sin x_{P}\in\mathbb{R}$ </span> 
+  <span id="note" style="padding:10px;background:#D0F3D5;color:#1c1c1c;">✅ $Q_{\mathbb{R}} = \frac{1}{2\pi}\sum_{P} \sin x_{P}\in\mathbb{R}$ </span>
 
-  <span id="note" style="padding:10px;background:#F7C2CC;">❌ $Q_{\mathbb{Z}} = \frac{1}{2\pi}\sum_{P} \left\lfloor x_{P}\right\rfloor\in\mathbb{Z}$ 
-	
+  <span id="note" style="padding:10px;background:#F7C2CC;color:#1c1c1c;align:right;">❌ $Q_{\mathbb{Z}} = \frac{1}{2\pi}\sum_{P} \left\lfloor x_{P}\right\rfloor\in\mathbb{Z}$</span>
+
   here $\left\lfloor x_{P}\right\rfloor = x_{P}-2\pi\left\lfloor\frac{x_{P}+\pi}{2\pi}\right\rfloor$
 
+</div>
+
 ---
-### Integrated Autocorrelation Time: $\tau_{\mathrm{int}}$
-![](assets/autocorr_new.svg) <!-- .element width="50%" -->
-![](assets/charge_histories.svg) <!-- .element width="90%" -->
-	  
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark' align="center">
+
+#### Integrated Autocorrelation time: <span style="color:#FF2052">$\tau_{\mathrm{int}}$</span>
+
+<div class="row">
+
+</div>
+
+![](assets/autocorr_new.svg) <!-- .element align="center" -->
+
+</div>
+
+<div class="row">
+
+![](assets/charge_histories.svg) <!-- .element width="100%" -->
+
+</div>
+
 ---
+
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
 
 # Interpretation
 
@@ -299,6 +341,8 @@ single L2HMC trajectory.
 
 <!-- .slide: data-background="#1c1c1c" -->
 
+<div id="dark">
+
 # [<img width=8% src="assets/github.svg" align="top">](https://github.com/saforem2/l2hmc-qcd) [l2hmc-qcd](https://github.com/saforem2/l2hmc-qcd)
 
 - [arXiV:2105.03418](https://arxiv.org/abs/2105.03418)
@@ -312,6 +356,9 @@ single L2HMC trajectory.
 - <b>Work in progress</b> scaling up to 2D, 4D $SU(3)$
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
 
 ## Non-Compact Projection 
 <small>[arXiv:2002.02428](https://arxiv.org/abs/2002.02428)</small>
@@ -328,6 +375,9 @@ single L2HMC trajectory.
 </div>
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
 
 # Non-Compact Projection
 
@@ -342,6 +392,9 @@ single L2HMC trajectory.
 </div>
 
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
 
 ## Acknowledgements
 
