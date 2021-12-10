@@ -48,40 +48,10 @@ December, 2021
 
 </div>
 
-<!--
-# Introduction
-
-<div id="left" style="width=50%;">
-
-- **Standard Model:**
-    - E&amp;M, strong, weak interactions, elementary particles
-
-- **Quantum Chromodynamics (QCD)**:
-	- Theory of the strong interaction between quarks and gluons
-	- **Analytically intractable**
-        - Discretize space-time onto lattice
-
-</div>
-
-<div id="right" style="width=50%;">
-
-
-<img class="imgnoborder" src="assets/nucleus.svg" style="width:200px;" />
-
-<br>
-
-<img class="imgnoborder" src="assets/feynman.svg" style="width:450px;" />
-
-
-</div>
-
--->
-
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark' style="vertical-align:center;">
-
 
 # Motivation
 
@@ -92,8 +62,9 @@ December, 2021
 - If we had <span id="red">_independent configurations_,</span> we could approximate the integral as
   $$ \langle\mathcal{O}\rangle\simeq\frac{1}{N}\sum_{n=1}^{N}\mathcal{O}(x_{n})\Rightarrow \sigma^{2}=\frac{1}{N}\text{Var}\left[\mathcal{O}(x)\right] $$
 
----
+</div>
 
+---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
@@ -113,13 +84,14 @@ December, 2021
 
 </span>
 
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
-## Motivation
+# Motivation
 
 <!-- - The ability to efficiently sample from complicated sampling from complicated distributions is a widely studied  -->
 - Generating independent configurations is currently a major bottleneck for
@@ -132,6 +104,8 @@ December, 2021
 
   ![](assets/single_chain.svg)
 
+</div>
+
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
@@ -141,22 +115,36 @@ December, 2021
 
 <div class="row">
 
-<div class="column" style="width: 40%; font-size: 100%;">
+<div class="column" style="width: 50%; font-size: 100%;text-align:left;align:right">
 
-<!-- - Generating independent configurations is currently a major bottleneck for lattice QCD. -->
+<h4><span style="color:#7B9FF9;">Charge Freezing</span></h4>
 
-- As <span id="red">$\beta\rightarrow \infty$</span>, configurations get stuck in sectors of fixed gauge topology $Q = \text{ const. }$ 
+  - $Q$ gets stuck!
 
-- \# of configurations required to reliably estimate errors **increases exponentially**
+  - As <span id="red"> $\beta\longrightarrow \infty$</span>:
 
-<span id="red"> $$\tau_{\mathrm{int}} \longrightarrow \infty$$ </span>
-<!-- <div id="note" style="width:40%;"> <span style="color: #BC032B;"> $$\tau_{\mathrm{int}} \rightarrow \infty$$ </span></div> -->
+  <div style="text-align:center;">
+
+  <span id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">$Q
+  \longrightarrow \text{ const.}$</span>
+
+  </div>
+
+- \# configs required to estimate errors **grows exponentially** 
+
+  <div style="text-align:center;">
+
+  <span id="note" style="color:rgb(255,82,82);background-color:rgba(255,255,255,0.15);padding:14px;"> $\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$ </span>
+
+  </div>
 
 </div>
 
-<div class="column" style="width: 59%;">
+<div class="column" style="width: 50%;">
 
 <img src="assets/critical_slowing_down.svg" style="max-width:85%; height:auto;">
+
+</div>
 
 </div>
 
@@ -169,9 +157,11 @@ December, 2021
 
 ### HMC: Leapfrog Integrator
 
-![](assets/hmc1.svg)  <!-- .element width="70%" -->
+![](assets/hmc1.svg)  <!-- .element width="90%" -->
 
-<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="95%" height="300px" -->
+<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="80%" height="220px" -->
+
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
@@ -183,31 +173,26 @@ December, 2021
 - Energy levels selected randomly $\rightarrow$ slow mixing!
 - Cannot easily traverse low-density zones
 - What do we want in a good sampler?
-  - **Fast mixing** (small autocorrelations) 
-  - **Fast burn-in** (quick convergence)
+  - <span id="cyan">**Fast mixing**</span> (small autocorrelations) 
+  - <span id="cyan">**Fast burn-in**</span> (quick convergence)
   - Ability to mix across energy levels and isolated modes
 
 ![](assets/hmc_traj_eps05.svg) <!-- .element width="49%" -->
 ![](assets/hmc_traj_eps025.svg) <!-- .element width="49%" -->
 
-<!--
-# Leapfrog Layer
-
-<div id="left" style="width:40%; align:center; font-size:0.9em; text-align: left;">
-
-- <span id="red"><b><u>L2HMC Update</u></b></span>:
-
-  ![](assets/updates.svg)
-
 </div>
 
-&nbsp;
+---
+<!-- .slide: data-background="#1c1c1c" -->
 
-![](assets/leapfrog_layer.svg) 
+<div id='dark'>
 
-![](assets/network_functions.svg)
--->
 
+## Toy Example: GMM $\in \mathbb{R}^{2}$
+
+![](assets/iso_gmm_chains.svg)
+
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
@@ -239,80 +224,177 @@ December, 2021
 
 <br>
 
-![](assets/leapfrog_layer_dark2.svg) <!-- .element width="60%" -->
-![](assets/network_functions_dark.drawio.svg) <!-- .element width="100%" align="center" -->
+![](assets/drawio/leapfrog_layer_dark2.svg) <!-- .element width="60%" -->
+![](assets/drawio/network_functions.svg) <!-- .element width="100%" align="center" -->
+<!-- ![](assets/network_functions_dark-Page-1.drawio.svg) <!-- .element width="100%" align="center" --> -->
 
-
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
+## L2HMC Update
 
-## Toy Example: GMM $\in \mathbb{R}^{2}$
+<div class="column">
 
-![](assets/iso_gmm_chains.svg)
+![](assets/drawio/update_steps.drawio.svg) <!-- .element width="39%" align="center" -->
+![](assets/drawio/leapfrog_layer_dark2.svg) <!-- .element width="60%" align="center"-->
+![](assets/drawio/network_functions.svg) <!-- .element width="100%" align="center" -->
+
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
-# Lattice Gauge Theory
+## Training Step
 
-<div class="row">
+<div class="column" style="width=100%;font-size:0.77em;">
 
-<div class="column" style="width: 40%; font-size: 90%;">
+1. Resample $\mathbf{v} \sim \mathcal{N}(0, \mathbb{1})$, $d\sim\mathcal{U}(+, -)$, 
+   construct <span id="cyan">$\xi = (\mathbf{x}, \mathbf{v}, \pm)$</span>
 
-- <b>Link variables</b>: 
-  - $U_{\mu}(x) = e^{i x_{\mu}(n)}\in U(1)$
-  - with <span id="blue">$x_{\mu}(n)\in[-\pi,\pi]$</span>
+2. Generate <span style="color:#AE81FF;">proposal $\xi^{\ast}$</span> by passing <span id="cyan">initial
+   $\xi$</span> through $N_{\mathrm{LF}}$ **leapfrog
+   layers**:
 
-- <b>Wilson Action</b>: 
-  - <span id="blue">$S_{\beta}(x) = \beta\sum_{P} 1 - \cos x_{P}$</span>,
-  <span style="font-size:0.8em;">$x_{P}= x_{\mu}(n) + x_{\nu}(n+\hat{\mu})-x_{\mu}(n+\hat{\nu})-x_{\nu}(n)$</span>
+   <div id="note" style="width:65%;color:rgb(255, 255, 255);background-color:rgba(255, 255, 255, 0.1);text-align:center;padding:5px;">
+
+   <span id="cyan">$\xi$</span> $ \hspace{1pt}\xrightarrow[]{\tiny{\mathrm{LF} \text{ layer}}}\xi_{1} \longrightarrow\cdots \longrightarrow \xi_{N_{\mathrm{LF}}} =$ <span style="color:#AE81FF;">$\xi^{\ast}$</span>
+
+   </div>
+
+3. Compute the **Metropolis-Hastings** (MH) acceptance (with Jacobian
+   $\mathcal{J}$) 
+
+   <div id="note" style="width:65%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.1);padding:5px;">
+
+   $A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi})=
+   \mathrm{min}\left\\{1,
+   \frac{p(\color{#AE81FF}{\xi^{\ast}})}{p(\color{#00CCFF}{\xi})}\mathcal{J}\left(\color{#AE81FF}{\xi^{\ast}},\color{#00CCFF}{\xi}\right)\right\\}$
+
+   </div>
+
+4. Evaluate the **loss function** $\mathcal{L}\gets
+   \mathcal{L}_{\theta}(\color{#AE81FF}{\xi^{\ast}}, \color{#00CCFF}{\xi})$ and backpropagate gradients
+
+5. Evaluate MH criteria and assign the next state in the chain according to
+
+   <div id="note" style="width:65%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">
+
+   $\mathbf{x}_{i+1}\gets
+   \begin{cases}
+     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ with prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \\\\
+     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ with prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{10pt}❌ 
+     \end{cases}$
+
+   </div>
 
 </div>
-
-<div class="column" style="width:45%;">
-
-![](assets/plaq_tikz.svg) <!-- .element height="240px" -->
-
-</div>
-
-</div>
-
-<div class="row">
-
-- <b>Topological Charge</b>:
-
-  <span id="note" style="padding:10px;background:#D0F3D5;color:#1c1c1c;">✅ $Q_{\mathbb{R}} = \frac{1}{2\pi}\sum_{P} \sin x_{P}\in\mathbb{R}$ </span>
-
-  <span id="note" style="padding:10px;background:#F7C2CC;color:#1c1c1c;align:right;">❌ $Q_{\mathbb{Z}} = \frac{1}{2\pi}\sum_{P} \left\lfloor x_{P}\right\rfloor\in\mathbb{Z}$</span>
-
-  here $\left\lfloor x_{P}\right\rfloor = x_{P}-2\pi\left\lfloor\frac{x_{P}+\pi}{2\pi}\right\rfloor$
 
 </div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
-<div id='dark' align="center">
+<div id='dark'>
+
+## Lattice Gauge Theory
+
+<div class="row">
+
+<div class="column" style="width: 65%; font-size: 90%; align:right;">
+
+- <h4><b><u> Link variables</u></b></h4>
+   $U_{\mu}(x) = e^{i x_{\mu}(n)}\in U(1)$,
+
+   with <span id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.1);padding:5px;">$x_{\mu}(n)\in[-\pi,\pi]$</span>
+
+- <h4><b><u> Wilson Action</u></b></h4>
+
+  <span id="note"
+  style="color:rgb(255,255,255);padding:5px;background:rgba(255,255,255,0.15);"> $S_{\beta}(x)
+  = \beta\sum_{P} 1 - \cos x_{P}$</span>
+
+  <span id="cyan" style="font-size:0.65em;align:right;">$x_{P}= x_{\mu}(n) + x_{\nu}(n+\hat{\mu})-x_{\mu}(n+\hat{\nu})-x_{\nu}(n)$</span>
+
+- <h4><b><u> Topological Charge</U></b></h4>
+
+</div>
+
+<div class="column" style="width:30%;vertical-align:center;">
+
+![](assets/plaq.drawio.svg)  <!-- .element align="center" width="90%"-->
+
+</div>
+
+</div>
+
+<div style="align=center;">
+
+<span id="green">**Continuous:**</span> $\hspace{2pt}$ <span id="note" style="padding:8px;background:#D0F3D5;color:#1c1c1c;">✅ $Q_{\mathbb{R}} = \frac{1}{2\pi}\sum_{P} \sin x_{P}\in\mathbb{R}$ </span>
+
+$\hspace{10pt}$ <span id="red"> **Discrete:**</span>$\hspace{4pt}$ <span id="note" style="padding:8px;background:#F7C2CC;color:#1c1c1c;text-align:right;">❌ $Q_{\mathbb{Z}} = \frac{1}{2\pi}\sum_{P} \left\lfloor x_{P}\right\rfloor\hspace{18px}\in\mathbb{Z}$</span>
+
+  $\hspace{45pt}$ with $\left\lfloor x_{P}\right\rfloor = x_{P}-2\pi\left\lfloor\frac{x_{P}+\pi}{2\pi}\right\rfloor$</span>
+
+</div>
+
+
+  <!-- <span id="note" style="padding:8px;background:rgba(232, 245, 233,0.8);color:rgb(76, 175, 80);">✅ $Q_{\mathbb{R}} = \frac{1}{2\pi}\sum_{P} \sin x_{P}\in\mathbb{R}$ </span> -->
+
+  <!-- <span id="note" style="padding:8px;background:rgba(255, 235, 238,0.8);color:rgb(244, 67, 54);align:right;">❌ $Q_{\mathbb{Z}} = \frac{1}{2\pi}\sum_{P} \left\lfloor x_{P}\right\rfloor\hspace{18px}\in\mathbb{Z}$</span> -->
+
+
+</div>
+
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
 
 #### Integrated Autocorrelation time: <span style="color:#FF2052">$\tau_{\mathrm{int}}$</span>
 
-<div class="row">
-
-</div>
-
-![](assets/autocorr_new.svg) <!-- .element align="center" -->
-
-</div>
+![](assets/charge_histories.svg) <!-- .element width="90%" -->
 
 <div class="row">
 
-![](assets/charge_histories.svg) <!-- .element width="100%" -->
+<div class="column">
+
+![](assets/autocorr_new.svg) <!-- .element align="center" width="85%" -->
+
+</div>
+
+<div class="column" align="left">
+
+We can measure the performance by comparing $\tau_{\mathrm{int}}^{Q}$ for the
+<span style="color:#FF2052">**trained model**</span> to <span
+style="color:#9F9F9F;">**HMC**</span>.
+
+</div>
+</div>
+
+![](assets/charge_histories.svg) <!-- .element width="90%" -->
+
+</div>
+
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
+
+### Integrated Autocorrelation Time
+
+
+![](assets/tint1.svg)  <!-- .element width="100%" -->
+
+Comparison of $\tau_{\mathrm{int}}^{Q}$ for <span
+style="color:#5BC461;">**trained models** </span> vs <span
+style="color:#9F9F9F;">**HMC** </span> with different trajectory lengths,
+$N_{\mathrm{LF}}$, at $\beta = 4, 5, 6, 7$
 
 </div>
 
@@ -325,27 +407,86 @@ December, 2021
 # Interpretation
 
 ![](assets/ridgeplots.svg)
-<br>
-<span style="font-size:0.6em; text-align: center;">
-<b>(a.)</b> Deviation in the average plaquette ; 
-<b>(b.)</b> Real-valued topological charge ; 
-<b>(c.)</b> Effective energy ;
-</span>
+
+<div class="row">
+
+<div class="column" style="width:36%; align:center;">
+<small>
+
+Deviation in $x_{P}$
+
+</small>
+</div>
+
+<div class="column" style="width:34%; align:right;">
+<small>
+
+Topological charge mixing $Q_{\mathbb{R}}$
+
+</small>
+</div>
+
+<div class="column" style="width:25%; align:right;">
+<small>
+
+Artificial influx of energy
+
+</small>
+</div>
+
+</div>
 
 <br>
 <b>Fig.</b> Illustration of how different observables evolve over a
 single L2HMC trajectory.
 </small>
 
----
+</div>
 
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
+
+## $x_{P}$ analysis
+
+- We can look at how the average plaquette $x_{P}$ behaves for different
+  trajectory lengths, $N_{\mathrm{LF}}$
+
+![](assets/plaqsf_vs_lf_step1.svg) <!-- .element width="100%" -->
+
+<div id="left" style="align:left;">
+<small>
+
+- The deviation $\langle x_{P} - x_{P}^{\ast}\rangle$ of $x_{P}$ from the
+  $V\rightarrow\infty$ limit, $x_{P}^{\ast}$ vs trajectory length
+  $N_{\mathrm{LF}}$
+
+</small>
+</div>
+
+<div id="right" style="align:right;">
+<small>
+
+- Average plaquette $\langle x_{P}\rangle$ vs trajectory length
+  $N_{\mathrm{LF}}$ with $x_{P}^{\ast}$ indicated by dashed lines
+
+</small>
+</div>
+
+
+</div>
+
+---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id="dark">
 
 # [<img width=8% src="assets/github.svg" align="top">](https://github.com/saforem2/l2hmc-qcd) [l2hmc-qcd](https://github.com/saforem2/l2hmc-qcd)
 
-- [arXiV:2105.03418](https://arxiv.org/abs/2105.03418)
+- [arXiv: 2105.03418](https://arxiv.org/abs/2105.03418)
+- [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582)
+- [arXiv: 2112.01586](https://arxiv.org/abs/2112.01586)
 
 - Source code publicly available
 
@@ -354,6 +495,8 @@ single L2HMC trajectory.
 - Generic interface, easily extensible
 
 - <b>Work in progress</b> scaling up to 2D, 4D $SU(3)$
+
+</div>
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
@@ -374,12 +517,15 @@ single L2HMC trajectory.
 
 </div>
 
+</div>
+
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
 <div id="dark">
 
-# Non-Compact Projection
+## Non-Compact Projection
+<small>[arXiv:2002.02428](https://arxiv.org/abs/2002.02428)</small>
 
 - Combine into a single update:
   $$ x' = \color{#228BE6}{m^{t}}\odot x +
@@ -412,7 +558,6 @@ single L2HMC trajectory.
  - [arXiv:2105.03418](https://arxiv.org/abs/2002.02428)
  - [arXiv:2002.02428](https://arxiv.org/abs/2002.02428)
 
-
 </div>
 
 <div id="right">
@@ -425,28 +570,46 @@ single L2HMC trajectory.
  - Chulwoo Jung
  - Peter Boyle
  - Taku Izubuchi
- - Critical Slowing Down group (ECP)
+ - ECP-CSD group
  - ALCF Staff + Datascience Group
 
 </div>
 
 <small> 
+
+<br>
+
 This research used resources of the Argonne Leadership Computing Facility,
 which is a DOE Office of Science User Facility supported under Contract
 DE-AC02-06CH11357.
+
 </small>
 
+</div>
+
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
+
 
 ### Network Architectures
 
 <img src="assets/dynamics_xnet0.png"  align=center width=45%>
 
+</div>
+
 ---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id="dark">
+
 
 ### Network Architectures
 
 <img src="assets/dynamics_vnet.png"  align=center width=36%>
+
+</div>
 
 ---
 <style>
@@ -455,8 +618,7 @@ DE-AC02-06CH11357.
     --r-heading-text-transform: none;
     --r-block-margin: 20px;
     --r-heading-margin: 0 0 20px 0;
-    --r-heading-font: "Open Sans", Helvetica, Impact, sans-serif;
-    --r-main-font: 'Source Sans Pro', Helvetica Neue, Helvetica, Arial, sans-serif;
+    --r-heading-font: "OpenSans-Bold", "Open Sans", Helvetica, Impact, sans-serif;
     --r-main-font-size: 38px;
     --r-block-margin: 10px;
     --r-heading-margin: 0 0 20px 0;
@@ -478,12 +640,13 @@ DE-AC02-06CH11357.
     --r-link-color-dark: #f92672;
     --r-link-color-hover: #63ff51;
     --r-controls-color: #228BE6;
-    --r-progress-color: #00CCFF;
-    --r-selection-background-color: rgba(30, 60, 107, 0.9);
-    --r-selection-color: #fff;
+    --r-progress-color: #404040;
+    --r-selection-background-color: rgba(255, 255, 0, 0.15);
+    --r-selection-color: rgb(255, 255, 0);
     --r-main-color: #222;
     --r-heading-color: #222;
     --r-background-color: #fff;
+    -webkit-font-smoothing:subpixel-antialiased;
 }
 
 .reveal {
@@ -502,7 +665,6 @@ DE-AC02-06CH11357.
     font-family: var(--r-heading-font);
     font-weight: 800;
     line-height: var(--r-heading-line-height);
-    letter-spacing: var(--r-heading-letter-spacing);
     word-spacing: var(--r-heading-word-spacing);
     text-transform: var(--r-heading-text-transform);
     text-shadow: var(--r-heading-text-shadow);
@@ -562,10 +724,19 @@ DE-AC02-06CH11357.
 #bright {
     color: #00A2FF;
 }
+#cyan {
+    color: #00CCFF;
+}
+#purple {
+    color: #AE81ff;
+}
 #green {
     color: #009051;
 }
-#lighpink {
+#yellow {
+    color: #FFFF00;
+}
+#lightpink {
     color: #E64980;
 }
 #pink {
@@ -574,6 +745,9 @@ DE-AC02-06CH11357.
 
 #red {
     color: #FA5252;
+}
+#grey {
+    color: #666666;
 }
 
 #noteinverse {
@@ -591,6 +765,15 @@ DE-AC02-06CH11357.
     border-color: rgba(240, 240, 240, 1.0);
     padding: auto;
     margin: auto;
+}
+
+#dark {
+    background-color: #1c1c1c;
+    color: #efefef;
+    /* --r-link-color: #00CCFF; */
+    --r-link-color: #228bE6;
+    --r-header-color: #f8f8f8;
+    --r-main-font: "Open Sans", sans-serif;
 }
 
 .reveal ul ul,

@@ -2,10 +2,23 @@
     font-family: KaTeX_Math;
     src: url('../custom/fonts/katex/KaTeX_Main-Regular.woff');
 }
+@font-face {
+    font-family: OpenSans-Condensed;
+    src: url('../custom/fonts/OpenSans_Condensed.ttf');
+}
+@font-face {
+    font-family: OpenSans-Bold;
+    src: url('../custom/fonts/OpenSans-ExtraBold.ttf');
+}
+@font-face {
+    font-family: SourceSansPro;
+    src: url('../custom/fonts/OpenSans-ExtraBold.ttf');
+}
+
 
 section.has-dark-background {
     background-color: #1c1c1c;
-    color: #efefef;
+    --r-heading-color: #efefef;
 }
 section.has-dark-background h1,
 section.has-dark-background h2,
@@ -13,14 +26,14 @@ section.has-dark-background h3,
 section.has-dark-background h4,
 section.has-dark-background h5,
 section.has-dark-background h6 {
-    color: #FFF;
+    color: rgb(235,235,235);
 }
 
 /* /_ GLOBAL STYLES _/ */
 :root {
     --r-background-color: #fff;
-    --r-heading-font: 'Open Sans', Helvetica, Impact, sans-serif;
-    --r-main-font: 'Montserrat', 'Source Sans Pro', Helvetica, Arial, sans-serif;
+    --r-heading-font: 'OpenSans-Condensed', 'Open Sans', Impact, Helvetica, sans-serif;
+    /* --r-main-font: 'Montserrat', 'Source Sans Pro', Helvetica, Arial, sans-serif; */
     --r-main-font-size: 36px;
     --r-main-color: #222;
     --r-block-margin: 10px;
@@ -397,13 +410,6 @@ background: var(--r-link-color-dark);
   font-size: 0.85em;
 }
 
-#dark {
-    background-color: #1c1c1c;
-    color: #efefef;
-    /* --r-link-color: #00CCFF; */
-    --r-link-color: #228bE6;
-    --r-main-font: "Open Sans", sans-serif;
-}
 
 #blue {
     color: #228BE6;
