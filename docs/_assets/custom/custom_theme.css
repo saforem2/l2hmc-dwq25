@@ -12,13 +12,14 @@
 }
 @font-face {
     font-family: SourceSansPro;
-    src: url('../custom/fonts/OpenSans-ExtraBold.ttf');
+    src: url('../custom/fonts/SourceSansPro-Regular.ttf');
 }
 
 
 section.has-dark-background {
     background-color: #1c1c1c;
     --r-heading-color: #efefef;
+    -webkit-font-smoothing:subpixel-antialiased;
 }
 section.has-dark-background h1,
 section.has-dark-background h2,
@@ -32,8 +33,9 @@ section.has-dark-background h6 {
 /* /_ GLOBAL STYLES _/ */
 :root {
     --r-background-color: #fff;
-    --r-heading-font: 'OpenSans-Condensed', 'Open Sans', Impact, Helvetica, sans-serif;
-    /* --r-main-font: 'Montserrat', 'Source Sans Pro', Helvetica, Arial, sans-serif; */
+    --r-heading-font: "OpenSans-Bold", "Open Sans", Impact, sans-serif;
+    /* --r-heading-font: 'Open Sans', Impact, Helvetica, sans-serif; */
+    --r-main-font: "SourceSansPro", 'Source Sans Pro', Helvetica, Arial, sans-serif;
     --r-main-font-size: 36px;
     --r-main-color: #222;
     --r-block-margin: 10px;

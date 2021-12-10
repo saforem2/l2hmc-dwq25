@@ -105,11 +105,11 @@ December, 2021
 
 <div class="row">
 
-<div class="column" style="width: 50%; font-size: 100%;text-align:left;align:right">
+<div class="column" style="width: 50%; font-size: 100%;text-align:left;align:center">
 
-<h4><span style="color:#7B9FF9;">Charge Freezing</span></h4>
+<br>
 
-  - $Q$ gets stuck!
+<h6><span style="color:#7B9FF9;font-weight:600;"><u>Charge Freezing</u></span></h6>
 
   - As <span id="red"> $\beta\longrightarrow \infty$</span>:
 
@@ -120,7 +120,9 @@ December, 2021
 
   </div>
 
-- \# configs required to estimate errors **grows exponentially** 
+  - $Q$ gets stuck!
+
+  - \# configs required to estimate errors **grows exponentially** 
 
   <div style="text-align:center;">
 
@@ -143,7 +145,7 @@ December, 2021
 
 <div id='dark'>
 
-### HMC: Leapfrog Integrator
+## HMC: Leapfrog Integrator
 
 ![](assets/hmc1.svg)  <!-- .element width="90%" -->
 
@@ -177,8 +179,9 @@ December, 2021
 ![](assets/iso_gmm_chains.svg)
 
 </div>
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
+<!-- .slide: data-background="#1c1c1c" -->
+<!--
 <div id='dark'>
 
 ## Leapfrog Layer
@@ -206,22 +209,23 @@ December, 2021
 
 <br>
 
-![](assets/drawio/leapfrog_layer_dark2.svg) <!-- .element width="60%" -->
-![](assets/drawio/network_functions.svg) <!-- .element width="100%" align="center" -->
-<!-- ![](assets/network_functions_dark-Page-1.drawio.svg) <!-- .element width="100%" align="center" --> -->
-
+![](assets/drawio/leapfrog_layer_dark2.svg) 
+.element width="60%" 
+![](assets/drawio/network_functions.svg) 
+.element width="100%" align="center" 
 </div>
+ -->
 </script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
-## L2HMC Update
+<h2> L2HMC Update </h2>
 
-<div class="column">
+<div id="float" style="width:100%;align:center;">
 
-![](assets/drawio/update_steps.drawio.svg) <!-- .element width="39%" align="center" -->
-![](assets/drawio/leapfrog_layer_dark2.svg) <!-- .element width="60%" align="center"-->
-![](assets/drawio/network_functions.svg) <!-- .element width="100%" align="center" -->
+<img src="assets/drawio/update_steps.svg" style="width:31%;align:left;">
+<img src="assets/drawio/leapfrog_layer_dark2.svg" style="width:64%;align:right;">
+<img src="assets/drawio/network_functions.svg" style="width:90%;align:center;">
 
 </div>
 </script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
@@ -239,7 +243,7 @@ December, 2021
    $\xi$</span> through $N_{\mathrm{LF}}$ **leapfrog
    layers**:
 
-   <div id="note" style="width:65%;color:rgb(255, 255, 255);background-color:rgba(255, 255, 255, 0.1);text-align:center;padding:5px;">
+   <div id="note" style="width:55%;color:rgb(255, 255, 255);background-color:rgba(255, 255, 255, 0.1);text-align:center;padding:5px;">
 
    <span id="cyan">$\xi$</span> $ \hspace{1pt}\xrightarrow[]{\tiny{\mathrm{LF} \text{ layer}}}\xi_{1} \longrightarrow\cdots \longrightarrow \xi_{N_{\mathrm{LF}}} =$ <span style="color:#AE81FF;">$\xi^{\ast}$</span>
 
@@ -248,7 +252,7 @@ December, 2021
 3. Compute the **Metropolis-Hastings** (MH) acceptance (with Jacobian
    $\mathcal{J}$) 
 
-   <div id="note" style="width:65%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.1);padding:5px;">
+   <div id="note" style="width:55%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.1);padding:5px;">
 
    $A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi})=
    \mathrm{min}\left\\{1,
@@ -261,12 +265,12 @@ December, 2021
 
 5. Evaluate MH criteria and assign the next state in the chain according to
 
-   <div id="note" style="width:65%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">
+   <div id="note" style="width:70%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">
 
    $\mathbf{x}_{i+1}\gets
    \begin{cases}
-     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ with prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \\\\
-     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ with prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{10pt}❌ 
+     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ w/ prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \hspace{2pt}\color{#00C30C}{\small{\text{ accept}}}\\\\
+     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ w/ prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{11pt}❌ \hspace{5pt}\color{#EC0300}{\small{\text{reject}}}
      \end{cases}$
 
    </div>
@@ -278,18 +282,18 @@ December, 2021
 
 <div id='dark'>
 
-## Lattice Gauge Theory
+### Lattice Gauge Theory
 
 <div class="row">
 
 <div class="column" style="width: 65%; font-size: 90%; align:right;">
 
-- <h4><b><u> Link variables</u></b></h4>
+- <h5><b><u> Link variables</u></b></h5>
    $U_{\mu}(x) = e^{i x_{\mu}(n)}\in U(1)$,
 
    with <span id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.1);padding:5px;">$x_{\mu}(n)\in[-\pi,\pi]$</span>
 
-- <h4><b><u> Wilson Action</u></b></h4>
+- <h5><b><u> Wilson Action</u></b></h5>
 
   <span id="note"
   style="color:rgb(255,255,255);padding:5px;background:rgba(255,255,255,0.15);"> $S_{\beta}(x)
@@ -297,7 +301,7 @@ December, 2021
 
   <span id="cyan" style="font-size:0.65em;align:right;">$x_{P}= x_{\mu}(n) + x_{\nu}(n+\hat{\mu})-x_{\mu}(n+\hat{\nu})-x_{\nu}(n)$</span>
 
-- <h4><b><u> Topological Charge</U></b></h4>
+- <h5><b><u> Topological Charge</U></b></h5>
 
 </div>
 
@@ -332,36 +336,34 @@ $\hspace{10pt}$ <span id="red"> **Discrete:**</span>$\hspace{4pt}$ <span id="not
 
 #### Integrated Autocorrelation time: <span style="color:#FF2052">$\tau_{\mathrm{int}}$</span>
 
-![](assets/charge_histories.svg) <!-- .element width="90%" -->
-
 <div class="row">
 
-<div class="column">
+<div class="column" style="width=50%;">
 
-![](assets/autocorr_new.svg) <!-- .element align="center" width="85%" -->
+![](assets/autocorr_new.svg) <!-- .element align="left" width="100%"-->
 
 </div>
 
-<div class="column" align="left">
+<div class="column" style="align:left;width:30%;align:center;text-align:left;">
 
 We can measure the performance by comparing $\tau_{\mathrm{int}}^{Q}$ for the
 <span style="color:#FF2052">**trained model**</span> to <span
 style="color:#9F9F9F;">**HMC**</span>.
 
 </div>
-</div>
-
-![](assets/charge_histories.svg) <!-- .element width="90%" -->
 
 </div>
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
+
+<img src="assets/charge_histories.svg" style="width:85%;">
+
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
 <div id="dark">
 
 ### Integrated Autocorrelation Time
 
 
-![](assets/tint1.svg)  <!-- .element width="100%" -->
+<img src="assets/tint1.svg" style="width:100%;">
 
 Comparison of $\tau_{\mathrm{int}}^{Q}$ for <span
 style="color:#5BC461;">**trained models** </span> vs <span
@@ -376,79 +378,55 @@ $N_{\mathrm{LF}}$, at $\beta = 4, 5, 6, 7$
 
 # Interpretation
 
+<span style="font-size:0.6em; align:center;">
+$\hspace{32pt}$
+Deviation in $x_{P}\hspace{20pt}$
+$\hspace{10pt}$ Topological charge mixing
+$\hspace{20pt}$ Artificial influx of energy
+</span>
+
 ![](assets/ridgeplots.svg)
 
-<div class="row">
-
-<div class="column" style="width:36%; align:center;">
-<small>
-
-Deviation in $x_{P}$
-
-</small>
-</div>
-
-<div class="column" style="width:34%; align:right;">
-<small>
-
-Topological charge mixing $Q_{\mathbb{R}}$
-
-</small>
-</div>
-
-<div class="column" style="width:25%; align:right;">
-<small>
-
-Artificial influx of energy
-
-</small>
-</div>
-
-</div>
-
-<br>
-<b>Fig.</b> Illustration of how different observables evolve over a
+<span style="font-size:0.7em;">
+Illustration of how different observables evolve over a
 single L2HMC trajectory.
-</small>
+</span>
 
 </div>
 </script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
 <div id="dark">
 
-## $x_{P}$ analysis
+## Plaquette analysis: $x_{P}$
 
-- We can look at how the average plaquette $x_{P}$ behaves for different
-  trajectory lengths, $N_{\mathrm{LF}}$
+- Look at how the <span id="blue">**average plaquette**, $x_{P}$</span> behaves for different
+  <span id="red">**trajectory lengths**, $N_{\mathrm{LF}}$</span>
 
 ![](assets/plaqsf_vs_lf_step1.svg) <!-- .element width="100%" -->
 
-<div id="left" style="align:left;">
-<small>
+<div class="row">
+<div class="column" style="font-size:0.6em;margin-left:11%;max-width:55%;text-align:center;">
 
-- The deviation $\langle x_{P} - x_{P}^{\ast}\rangle$ of $x_{P}$ from the
-  $V\rightarrow\infty$ limit, $x_{P}^{\ast}$ vs trajectory length
-  $N_{\mathrm{LF}}$
+<div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
 
-</small>
-</div>
-
-<div id="right" style="align:right;">
-<small>
-
-- Average plaquette $\langle x_{P}\rangle$ vs trajectory length
-  $N_{\mathrm{LF}}$ with $x_{P}^{\ast}$ indicated by dashed lines
-
-</small>
-</div>
-
+Deviation from $V\rightarrow\infty$ limit:  $x_{P}^{\ast}$
 
 </div>
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
+
+</div>
+<div class="column" style="font-size:0.6em;margin-left:12%;text-align:center;margin-right:4%;">
+
+<div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
+
+Average $\langle x_{P}\rangle$, with $x_{P}^{\ast}$ (dotted-lines)
+</div>
+</div>
+</div>
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
 <div id="dark">
 
-# [<img width=8% src="assets/github.svg" align="top">](https://github.com/saforem2/l2hmc-qcd) [l2hmc-qcd](https://github.com/saforem2/l2hmc-qcd)
+# [<img width=7% src="assets/github.svg" align="top">](https://github.com/saforem2/l2hmc-qcd) [l2hmc-qcd](https://github.com/saforem2/l2hmc-qcd)
 
 - [arXiv: 2105.03418](https://arxiv.org/abs/2105.03418)
 - [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582)
@@ -583,11 +561,11 @@ DE-AC02-06CH11357.
     --r-heading-text-shadow: none;
     --r-heading-font-weight: 800;
     --r-heading1-text-shadow: none;
-    --r-heading1-size: 2.0em;
+    --r-heading1-size: 1.75em;
     --r-heading2-size: 1.5em;
-    --r-heading3-size: 1.20em;
+    --r-heading3-size: 1.25em;
     --r-heading4-size: 1.15em;
-    --r-heading5-size: 1.10em;
+    --r-heading5-size: 1.1em;
     --r-heading6-size: 1.05em;
     --r-code-font: "agave Nerd Font", monospace;
     --r-link-color: #007DFF;
@@ -617,7 +595,6 @@ DE-AC02-06CH11357.
     margin: var(--r-heading-margin);
     color: var(--r-heading-color);
     font-family: var(--r-heading-font);
-    font-weight: 800;
     line-height: var(--r-heading-line-height);
     word-spacing: var(--r-heading-word-spacing);
     text-transform: var(--r-heading-text-transform);
@@ -626,21 +603,32 @@ DE-AC02-06CH11357.
 }
 
 .reveal h1 {
+    font-weight: 800;
     font-size: var(--r-heading1-size);
 }
 
 .reveal h2 {
+    font-weight: 700;
     font-size: var(--r-heading2-size);
 }
 
 .reveal h3 {
+    font-weight: 700;
     font-size: var(--r-heading3-size);
-    color: #1c1c1c;
 }
 
 .reveal h4 {
+    font-weight: 700;
     font-size: var(--r-heading4-size);
-    color: #333333;
+}
+
+.reveal h5 {
+    font-weight: 600;
+    font-size: var(--r-heading5-size);
+}
+.reveal h6 {
+    font-weight: 500;
+    font-size: var(--r-heading6-size);
 }
 
 #left {
@@ -661,7 +649,8 @@ DE-AC02-06CH11357.
   width: 48%;
   font-size: 0.85em;
 }
-#dark_back {
+
+#darkBack {
     background-color: #1c1c1c;
     color: #efefef;
     .reveal a {
@@ -672,6 +661,7 @@ DE-AC02-06CH11357.
         color: var(--r-link-color-hover);
     }
 }
+
 #blue {
     color: #228BE6;
 }
@@ -696,7 +686,6 @@ DE-AC02-06CH11357.
 #pink {
     color: #F92672;
 }
-
 #red {
     color: #FA5252;
 }
@@ -715,7 +704,7 @@ DE-AC02-06CH11357.
 
 #note {
     background-color: rgba(240, 240, 240, 0.90);
-    border-radius: 5px;
+    border-radius: 8px;
     border-color: rgba(240, 240, 240, 1.0);
     padding: auto;
     margin: auto;
@@ -724,10 +713,8 @@ DE-AC02-06CH11357.
 #dark {
     background-color: #1c1c1c;
     color: #efefef;
-    /* --r-link-color: #00CCFF; */
     --r-link-color: #228bE6;
     --r-header-color: #f8f8f8;
-    --r-main-font: "Open Sans", sans-serif;
 }
 
 .reveal ul ul,
