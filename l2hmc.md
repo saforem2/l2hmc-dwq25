@@ -1,10 +1,10 @@
 ---
 title: "l2hmc-qcd -- DWQ @ 25"
 theme: simple
-width: 960px
-height: 700px
-center: false
-margin: 0.04
+width: 1280px
+height: 720px
+center: true
+margin: 0.05
 highlightTheme: github
 transition: slide
 output:
@@ -49,7 +49,7 @@ December, 2021
 </div>
 
 ---
-<!-- .slide: data-background="#1c1c1c" -->
+<!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
 
 <div id='dark' style="vertical-align:center;">
 
@@ -113,40 +113,27 @@ December, 2021
 
 # <span style="color: #3B4CC0;">Critical Slowing Down</span>
 
-<div class="row">
+<div id="left" style="width: 45%; font-size: 100%;text-align:left;align:left;margin-left:25pt;margin-top:20pt;">
 
-<div class="column" style="width: 50%; font-size: 100%;text-align:left;align:center">
+<h6><span id="note" style="color:rgb(123,159,249);background-color:rgba(123,159,249,0.15);padding:10px;margin-top:10pt;">Charge Freezing</span></h6>
 
-<br>
+- <span style="color:rgb(192,212,245);font-weight:600;">$Q$ gets stuck!
 
-<h6><span style="color:#7B9FF9;font-weight:600;"><u>Charge Freezing</u></span></h6>
+- <span style="color:rgb(242, 203, 183);">$Q \longrightarrow \text{ const.}$</span>
+   <span style="color:rgb(242, 203, 183);"> as  $\beta\longrightarrow \infty$</span>
 
-  - As <span id="red"> $\beta\longrightarrow \infty$</span>:
 
-  <div style="text-align:center;">
+  - <span style="color:rgb(238, 132, 104);">\# configs required to estimate errors **grows exponentially** $\Longrightarrow$</span>
 
-  <span id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">$Q
-  \longrightarrow \text{ const.}$</span>
-
-  </div>
-
-  - $Q$ gets stuck!
-
-  - \# configs required to estimate errors **grows exponentially** 
-
-  <div style="text-align:center;">
-
-  <span id="note" style="color:rgb(255,82,82);background-color:rgba(255,255,255,0.15);padding:14px;"> $\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$ </span>
+   <span id="note" style="color:rgb(255,82,82);background-color:rgba(255,82,82,0.15);padding:10px;margin-left:35pt;align:center;"> $\tau_{\mathrm{int}}^{Q} \longrightarrow \infty$ </span>
 
   </div>
 
 </div>
 
-<div class="column" style="width: 50%;">
+<div id="right" style="align:right;">
 
-<img src="assets/critical_slowing_down.svg" style="max-width:85%; height:auto;">
-
-</div>
+<img src="assets/critical_slowing_down.svg" style="max-width:85%; height:auto;align:right;">
 
 </div>
 
@@ -161,7 +148,8 @@ December, 2021
 
 ![](assets/hmc1.svg)  <!-- .element width="90%" -->
 
-<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="80%" height="220px" -->
+<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="80%" -->
+</span>
 
 </div>
 
@@ -360,25 +348,20 @@ $\hspace{10pt}$ <span id="red"> **Discrete:**</span>$\hspace{4pt}$ <span id="not
 
 #### Integrated Autocorrelation time: <span style="color:#FF2052">$\tau_{\mathrm{int}}$</span>
 
-<div class="row">
+<div id="left" style="margin-left:6%;max-width:75%;">
 
-<div class="column" style="width=50%;">
-
-![](assets/autocorr_new.svg) <!-- .element align="left" width="100%"-->
+<img src="assets/autocorr_new.svg" style="width:100%;">
 
 </div>
 
-<div class="column" style="align:left;width:30%;align:center;text-align:left;">
+<div id="right" style="align:left;text-align:left;width:30%;margin-right:15%;">
 
 We can measure the performance by comparing $\tau_{\mathrm{int}}^{Q}$ for the
 <span style="color:#FF2052">**trained model**</span> to <span
 style="color:#9F9F9F;">**HMC**</span>.
-
 </div>
 
-</div>
-
-<img src="assets/charge_histories.svg" style="width:85%;">
+<img src="assets/charge_histories.svg" style="width:90%;margin-top:-4%;">
 
 </div>
 ---
@@ -605,10 +588,10 @@ DE-AC02-06CH11357.
     --r-heading-text-shadow: none;
     --r-heading-font-weight: 800;
     --r-heading1-text-shadow: none;
-    --r-heading1-size: 1.75em;
-    --r-heading2-size: 1.5em;
-    --r-heading3-size: 1.25em;
-    --r-heading4-size: 1.15em;
+    --r-heading1-size: 2em;
+    --r-heading2-size: 1.75em;
+    --r-heading3-size: 1.5em;
+    --r-heading4-size: 1.25em;
     --r-heading5-size: 1.1em;
     --r-heading6-size: 1.05em;
     --r-code-font: "agave Nerd Font", monospace;
@@ -675,6 +658,49 @@ DE-AC02-06CH11357.
     font-size: var(--r-heading6-size);
 }
 
+.reveal ul ul,
+.reveal ul ol,
+.reveal ol ol,
+.reveal ol ul {
+    display: block;
+    margin-left: 0px;
+    /* margin-bottom: 20px; */
+}
+
+.reveal ul:not(:last-child) {
+    margin-bottom: 2px;
+}
+.container {
+  position: relative;
+}
+
+.make-it-pop {
+  filter: drop-shadow(0 0 10px purple);
+}
+
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+  section {
+    -webkit-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+
 #left {
   margin: 0 0 5px 5px;
   text-align: left;
@@ -703,6 +729,20 @@ DE-AC02-06CH11357.
     }
     .reveal a:hover {
         color: var(--r-link-color-hover);
+    }
+}
+
+.multiCol {
+    display: table;
+    table-layout: fixed; // don't fudge depending on content
+    width: 100%;
+    text-align: left; // matter of taste, makes imho sense
+    .col {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+        padding: 2% 0 2% 3%; // some vertical, and between columns
+        &:first-of-type { padding-left: 0; } // there's nothing before col1
     }
 }
 
@@ -759,50 +799,11 @@ DE-AC02-06CH11357.
     color: #efefef;
     --r-link-color: #228bE6;
     --r-header-color: #f8f8f8;
-}
-
-.reveal ul ul,
-.reveal ul ol,
-.reveal ol ol,
-.reveal ol ul {
-    display: block;
-    margin-left: 0px;
-    /* margin-bottom: 20px; */
-}
-
-.reveal ul:not(:last-child) {
-    margin-bottom: 2px;
+    -webkit-font-smoothing:subpixel-antialiased;
 }
 
 #halfsize {
     font-size: 0.5em;
-}
-
-.container {
-  position: relative;
-}
-
-.bottomright {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  font-size: 18px;
-}
-
-/* Responsive layout - makes the menu and the content (inside the section) sit on top of each other instead of next to each other */
-@media (max-width: 600px) {
-  section {
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
-}
-
-.row {
-  display: flex;
-}
-
-.column {
-  flex: 50%;
 }
 
 </style>
