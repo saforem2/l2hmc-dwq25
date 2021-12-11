@@ -44,7 +44,47 @@ December, 2021
 
 [<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
 
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
+<div style="align:center;vertical-align:center;">
+
+<h1 class="r-fit-text">Accelerated Sampling Techniques</h1>
+
+<h3>for Lattice Gauge Theory</h3>
+
+<span style="font-size:0.8em;">
+
+[BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
+
+December, 2021
+
+<br>
+
+</span>
+
+#### [**Sam Foreman**](https://www.samforeman.me)
+
+<br>
+
+
+<small><a href="https://arxiv.org/abs/2105.03418">arXiv: 2105.03418</a>
+$\hspace{10pt}$
+<a href="https://arxiv.org/abs/2112.01582">arXiv: 2112.01582</a>
+$\hspace{10pt}$
+<a href="https://arxiv.org/abs/2112.01586">arXiv: 2112.01586</a></small>
+
 </div>
+
+[<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
+
+[<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
+
+</div>
+
+</div>
+
 </script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
 
 <div id='dark' style="vertical-align:center;">
@@ -688,6 +728,20 @@ DE-AC02-06CH11357.
     }
 }
 
+.multiCol {
+    display: table;
+    table-layout: fixed; // don't fudge depending on content
+    width: 100%;
+    text-align: left; // matter of taste, makes imho sense
+    .col {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+        padding: 2% 0 2% 3%; // some vertical, and between columns
+        &:first-of-type { padding-left: 0; } // there's nothing before col1
+    }
+}
+
 #blue {
     color: #228BE6;
 }
@@ -795,6 +849,7 @@ DE-AC02-06CH11357.
       var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":false,"margin":0.04,"theme":"black","highlightTheme":"github","scripts":["plugin/reveal.js-menu/menu.js","plugin/reveal.js-plugins/chalkboard/plugin.js","plugin.js"],"menu":{"themes":true,"transitions":true}}, queryOptions);
     </script>
 
+    <script src="./_assets/docs/plugin.js"></script>
 
     <script>
       Reveal.initialize(options);

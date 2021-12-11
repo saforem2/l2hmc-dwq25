@@ -47,6 +47,48 @@ December, 2021
 [<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
 
 </div>
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
+<div style="align:center;vertical-align:center;">
+
+<h1 class="r-fit-text">Accelerated Sampling Techniques</h1>
+
+<h3>for Lattice Gauge Theory</h3>
+
+<span style="font-size:0.8em;">
+
+[BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
+
+December, 2021
+
+<br>
+
+</span>
+
+#### [**Sam Foreman**](https://www.samforeman.me)
+
+<br>
+
+
+<small><a href="https://arxiv.org/abs/2105.03418">arXiv: 2105.03418</a>
+$\hspace{10pt}$
+<a href="https://arxiv.org/abs/2112.01582">arXiv: 2112.01582</a>
+$\hspace{10pt}$
+<a href="https://arxiv.org/abs/2112.01586">arXiv: 2112.01586</a></small>
+
+</div>
+
+[<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
+
+[<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
+
+</div>
+
+</div>
+
 
 ---
 <!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->

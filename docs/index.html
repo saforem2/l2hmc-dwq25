@@ -14,12 +14,41 @@
     <link rel="stylesheet" href="./plugin/reveal.js-plugins/customcontrols/style.css" />
     <link rel="stylesheet" href="./plugin/reveal.js-plugins/chalkboard/style.css" />
 
+
   </head>
   <body>
     <div class="reveal">
       <div class="slides"><section  data-markdown><script type="text/template">
 
 <!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
+&nbsp;
+
+### Accelerated Sampling Techniques
+#### for Lattice Gauge Theory
+
+[BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
+<br>
+December, 2021
+<br>
+<br>
+
+#### [**Sam Foreman**](https://www.samforeman.me)
+
+<br>
+
+<small>[1] [arXiv: 2105.03418](https://arxiv.org/abs/2105.03418), 
+   [2] [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582), 
+ [3] [arXiv: 2112.01586](https://arxiv.org/abs/2112.01586)</small>
+</small>
+
+[<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
+
+[<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
+
+</div></script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" -->
 
 <div id='dark'>
 
@@ -59,7 +88,8 @@ $\hspace{10pt}$
 </div>
 
 </div>
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c"-->
+
+</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
 
 <div id='dark' style="vertical-align:center;">
 
@@ -121,7 +151,7 @@ $\hspace{10pt}$
 
 <h6><span id="note" style="color:rgb(123,159,249);background-color:rgba(123,159,249,0.15);padding:10px;margin-top:10pt;">Charge Freezing</span></h6>
 
-- <span style="color:rgb(192,212,245);font-weight:700;">$Q$ gets stuck!
+- <span style="color:rgb(192,212,245);font-weight:600;">$Q$ gets stuck!
 
 - <span style="color:rgb(242, 203, 183);">$Q \longrightarrow \text{ const.}$</span>
    <span style="color:rgb(242, 203, 183);"> as  $\beta\longrightarrow \infty$</span>
@@ -271,8 +301,8 @@ $\hspace{10pt}$
 
    $\mathbf{x}_{i+1}\gets
    \begin{cases}
-     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ w/ prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \hspace{2pt}\\\\
-     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ w/ prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{11pt}❌ \hspace{5pt}
+     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ w/ prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \hspace{2pt}\color{#00C30C}{\small{\text{ accept}}}\\\\
+     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ w/ prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{11pt}❌ \hspace{5pt}\color{#EC0300}{\small{\text{reject}}}
      \end{cases}$
 
    </div>
@@ -568,7 +598,7 @@ DE-AC02-06CH11357.
     --r-link-color: #007DFF;
     --r-link-color-dark: #f92672;
     --r-link-color-hover: #63ff51;
-    --r-controls-color: #00CCFF;
+    --r-controls-color: #228BE6;
     --r-progress-color: #404040;
     --r-selection-background-color: rgba(255, 255, 0, 0.15);
     --r-selection-color: rgb(255, 255, 0);
@@ -605,12 +635,12 @@ DE-AC02-06CH11357.
 }
 
 .reveal h2 {
-    font-weight: 800;
+    font-weight: 700;
     font-size: var(--r-heading2-size);
 }
 
 .reveal h3 {
-    font-weight: 800;
+    font-weight: 700;
     font-size: var(--r-heading3-size);
 }
 
@@ -670,13 +700,6 @@ DE-AC02-06CH11357.
   flex: 50%;
 }
 
-.twocolumn {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   grid-gap: 10px;
-   text-align: left;
-}
-
 
 #left {
   margin: 0 0 5px 5px;
@@ -706,6 +729,20 @@ DE-AC02-06CH11357.
     }
     .reveal a:hover {
         color: var(--r-link-color-hover);
+    }
+}
+
+.multiCol {
+    display: table;
+    table-layout: fixed; // don't fudge depending on content
+    width: 100%;
+    text-align: left; // matter of taste, makes imho sense
+    .col {
+        display: table-cell;
+        vertical-align: top;
+        width: 50%;
+        padding: 2% 0 2% 3%; // some vertical, and between columns
+        &:first-of-type { padding-left: 0; } // there's nothing before col1
     }
 }
 
@@ -843,7 +880,7 @@ DE-AC02-06CH11357.
       // options from URL query string
       var queryOptions = Reveal().getQueryHash() || {};
 
-      var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":true,"margin":0.04,"theme":"black","highlightTheme":"github","scripts":["plugin/reveal.js-menu/menu.js","plugin/reveal.js-plugins/chalkboard/plugin.js","plugin.js"],"menu":{"themes":true,"transitions":true}}, queryOptions);
+      var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":false,"margin":0.04,"theme":"black","highlightTheme":"github","scripts":["plugin/reveal.js-menu/menu.js","plugin/reveal.js-plugins/chalkboard/plugin.js","plugin.js"],"menu":{"themes":true,"transitions":true}}, queryOptions);
     </script>
 
 
