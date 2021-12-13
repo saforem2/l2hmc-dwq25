@@ -53,7 +53,7 @@ $\hspace{10pt}$
 
 
 ---
-<!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
+<!-- .slide: data-background="#1c1c1c"-->
 
 <div id='dark' style="vertical-align:center;">
 
