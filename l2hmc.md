@@ -105,26 +105,6 @@ $\hspace{10pt}$
 
 <div id='dark'>
 
-# Motivation
-
-<!-- - The ability to efficiently sample from complicated sampling from complicated distributions is a widely studied  -->
-- Generating independent configurations is currently a major bottleneck for
-  lattice QCD.
-
-- As the lattice spacing $a\rightarrow 0$ (or equivalently, $\beta \rightarrow \infty$),
-  configurations get stuck in sectors of fixed gauge topology. 
-
-  - Causes $\tau_{\mathrm{int}}$ to grow exponentially
-
-  ![](assets/single_chain.svg)
-
-</div>
-
----
-<!-- .slide: data-background="#1c1c1c" -->
-
-<div id='dark'>
-
 # <span style="color: #3B4CC0;">Critical Slowing Down</span>
 
 <div id="left" style="width: 45%; font-size: 100%;text-align:left;align:left;margin-left:25pt;margin-top:20pt;">
@@ -191,54 +171,6 @@ $\hspace{10pt}$
 
 <div id='dark'>
 
-
-## Toy Example: GMM $\in \mathbb{R}^{2}$
-
-![](assets/iso_gmm_chains.svg)
-
-</div>
-
-<!-- .slide: data-background="#1c1c1c" -->
-<!--
-<div id='dark'>
-
-## Leapfrog Layer
-
-<div id="left" style="width:38%; align:center; font-size:0.60em; text-align: left;">
-
-#### <span id="bright"><u>L2HMC Update:</u></span>
-1. Update $\mathbf{v}$:
-
-    - `\(\mathbf{v}'= \Gamma^{\pm}[\mathbf{v}; \zeta_{\mathbf{v}}]\)`
-
-2. Update half of `\(\mathbf{x}\)` via <span id="red"> `\(\mathbf{x}_{\bar{m}}\)`</span>:
-
-    - `\(\mathbf{x}' = \)` <span id="blue">`\(\mathbf{x}_{m} \)`</span>`\(+ \Lambda^{\pm}[\)`<span id="red">`\(\mathbf{x}_{\bar{m}}\)`</span>`\(; \zeta_{\mathbf{x}}]\)`
-
-3. Update (other) half of `\(\mathbf{x}\)` via <span id="blue"> `\(\mathbf{x}_{m}'\)`</span> :
-
-    - `\(\mathbf{x}'' = \)` <span id="red">`\(\mathbf{x}_{\bar{m}} \)`</span>`\(+ \Lambda^{\pm}[\)`<span id="blue">`\(\mathbf{x}_{m}'\)`</span>`\(; \zeta_{\mathbf{x}'}]\)`
-
-4. Update $\mathbf{v}$:
-
-    - `\(\mathbf{v}''= \Gamma^{\pm}[\mathbf{v}'; \zeta_{\mathbf{v}'}]\)`
-
-</div>
-
-<br>
-
-![](assets/drawio/leapfrog_layer_dark2.svg) 
-.element width="60%" 
-![](assets/drawio/network_functions.svg) 
-.element width="100%" align="center" 
-</div>
- -->
-
----
-<!-- .slide: data-background="#1c1c1c" -->
-
-<div id='dark'>
-
 <h2> L2HMC Update </h2>
 
 <div id="float" style="width:100%;align:center;">
@@ -298,6 +230,16 @@ $\hspace{10pt}$
    </div>
 
 </div>
+
+</div>
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
+## Toy Example: GMM $\in \mathbb{R}^{2}$
+
+![](assets/iso_gmm_chains.svg)
 
 </div>
 
