@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="./plugin/reveal.js-plugins/customcontrols/style.css" />
     <link rel="stylesheet" href="./plugin/reveal.js-plugins/chalkboard/style.css" />
 
-
   </head>
   <body>
     <div class="reveal">
@@ -89,7 +88,7 @@ $\hspace{10pt}$
 
 </div>
 
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
+</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c"-->
 
 <div id='dark' style="vertical-align:center;">
 
@@ -836,7 +835,7 @@ DE-AC02-06CH11357.
 
       // default options to init reveal.js
       var defaultOptions = {
-        controls: false,
+        controls: true,
         progress: true,
         history: true,
         center: true,
@@ -882,7 +881,17 @@ DE-AC02-06CH11357.
 
       var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":false,"margin":0.04,"theme":"black","highlightTheme":"github","scripts":["plugin/reveal.js-menu/menu.js","plugin/reveal.js-plugins/chalkboard/plugin.js","plugin.js"],"menu":{"themes":true,"transitions":true}}, queryOptions);
     </script>
+      };
 
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":true,"margin":0.04,"theme":"black","highlightTheme":"github"}, queryOptions);
+    </script>
+
+    <script src="./_assets/docs/plugin/reveal.js-menu/menu.js"></script>
+    <script src="./_assets/docs/plugin/reveal.js-plugins/chalkboard/plugin.js"></script>
+    <script src="./_assets/docs/plugin.js"></script>
 
     <script>
       Reveal.initialize(options);
