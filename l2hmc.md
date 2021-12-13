@@ -188,8 +188,8 @@ $\hspace{10pt}$
 
 <div class="column" style="width=100%;font-size:0.77em;">
 
-1. Resample $\mathbf{v} \sim \mathcal{N}(0, \mathbb{1})$, $d\sim\mathcal{U}(+, -)$, 
-   construct <span id="cyan">$\xi = (\mathbf{x}, \mathbf{v}, \pm)$</span>
+1. Resample <span id="green">$\mathbf{v} \sim \mathcal{N}(0, \mathbb{1})$</span>, <span id="pink">$d\sim\mathcal{U}(+, -)$,</span> 
+   construct <span id="cyan">$\xi$</span>$=(\mathbf{x}, $<span id="green">$\mathbf{v}$</span>, <span id="pink">$\pm$</span>$)$
 
 2. Generate <span style="color:#AE81FF;">proposal $\xi^{\ast}$</span> by passing <span id="cyan">initial
    $\xi$</span> through $N_{\mathrm{LF}}$ **leapfrog
@@ -747,7 +747,7 @@ DE-AC02-06CH11357.
     color: #AE81ff;
 }
 #green {
-    color: #009051;
+    color: #63FF51;
 }
 #yellow {
     color: #FFFF00;
