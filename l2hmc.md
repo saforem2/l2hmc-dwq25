@@ -138,12 +138,11 @@ $\hspace{10pt}$
 
 <div id='dark'>
 
-## HMC: Leapfrog Integrator
+### HMC: Leapfrog Integrator
 
 ![](assets/hmc1.svg)  <!-- .element width="90%" -->
 
-<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="80%" -->
-</span>
+<iframe data-src="https://chi-feng.github.io/mcmc-demo/app.html"></iframe> <!-- .element width="90%" -->
 
 </div>
 
@@ -153,13 +152,12 @@ $\hspace{10pt}$
 <div id='dark'>
 
 # Issues with HMC
-	
-- Energy levels selected randomly $\rightarrow$ slow mixing!
+
+- Energy levels selected randomly $\rightarrow$ <span id="red">slow mixing!</span>
 - Cannot easily traverse low-density zones
 - What do we want in a good sampler?
-  - <span id="cyan">**Fast mixing**</span> (small autocorrelations) 
-  - <span id="cyan">**Fast burn-in**</span> (quick convergence)
-  - Ability to mix across energy levels and isolated modes
+  - <span id="blue">**Fast mixing**</span> (small autocorrelations)
+  - <span id="blue">**Fast burn-in**</span> (quick convergence)
 
 ![](assets/hmc_traj_eps05.svg) <!-- .element width="49%" -->
 ![](assets/hmc_traj_eps025.svg) <!-- .element width="49%" -->
@@ -433,7 +431,7 @@ to tunnel between isolated sectors.
 
 <div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
 
-Deviation from $V\rightarrow\infty$ limit:  $x_{P}^{\ast}$
+Deviation from $V\rightarrow\infty$ limit,  $x_{P}^{\ast}$
 
 </div>
 
@@ -446,7 +444,9 @@ Average $\langle x_{P}\rangle$, with $x_{P}^{\ast}$ (dotted-lines)
 </div>
 </div>
 </div>
-<small><b>Fig.</b> Plot showing how <span id="blue"><b>average plaquette</b>, $x_{P}$</span> varies over a single trajectory</small>
+<small><b>Fig.</b> Plot showing how <b>average plaquette</b>, $\left\langle
+x_{P}\right\rangle$ varies over a single trajectory for models trained at
+different $\beta$, with varying trajectory lengths $N_{\mathrm{LF}}$</small>
 
 </div>
 ---
