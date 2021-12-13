@@ -483,8 +483,6 @@ to tunnel between isolated sectors.
 
 ## Plaquette analysis: $x_{P}$
 
-- Look at how the <span id="blue">**average plaquette**, $x_{P}$</span> behaves for different
-  <span id="red">**trajectory lengths**, $N_{\mathrm{LF}}$</span>
 
 ![](assets/plaqsf_vs_lf_step1.svg) <!-- .element width="100%" -->
 
@@ -506,6 +504,8 @@ Average $\langle x_{P}\rangle$, with $x_{P}^{\ast}$ (dotted-lines)
 </div>
 </div>
 </div>
+<small><b>Fig.</b> Plot showing how <span id="blue"><b>average plaquette</b>, $x_{P}$</span> varies over a single trajectory</small>
+
 </div>
 ---
 <!-- .slide: data-background="#1c1c1c" -->
