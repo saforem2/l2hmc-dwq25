@@ -1,52 +1,14 @@
 ---
 title: "l2hmc-qcd -- DWQ @ 25"
-theme: simple
+theme: black
 width: 1280px
 height: 720px
 center: true
 margin: 0.05
 highlightTheme: github
-transition: slide
-output:
-  revealjs::revealjs_presentation:
-    self_contained: false
-    reveal_plugins: ["chalkboard"]
-    reveal_options:
-      chalkboard:
-        enabled: true
-        theme: whiteboard
-        toggleNotesButton: false
----
-
-<!-- .slide: data-background="#1c1c1c" -->
-
-<div id='dark'>
-
-&nbsp;
-
-### Accelerated Sampling Techniques
-#### for Lattice Gauge Theory
-
-[BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
-<br>
-December, 2021
-<br>
-<br>
-
-#### [**Sam Foreman**](https://www.samforeman.me)
-
-<br>
-
-<small>[1] [arXiv: 2105.03418](https://arxiv.org/abs/2105.03418), 
-   [2] [arXiv: 2112.01582](https://arxiv.org/abs/2112.01582), 
- [3] [arXiv: 2112.01586](https://arxiv.org/abs/2112.01586)</small>
-</small>
-
-[<img align="left" width=10% src="assets/github.svg">](https://github.com/saforem2/l2hmc-qcd)
-
-[<img align="right" width=30% src="assets/Argonne_cmyk_white.svg">](https://alcf.anl.gov)
-
-</div>
+css: 'custom/custom_theme.css'
+revealOptions:
+  transition: 'slide'
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
