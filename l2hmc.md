@@ -7,8 +7,18 @@ center: true
 margin: 0.05
 highlightTheme: github
 css: 'custom/custom_theme.css'
+transition: slide
 revealOptions:
-  transition: 'slide'
+    transition: 'slide'
+    scripts:
+    - plugin/reveal.js-menu/menu.js
+    - plugin/reveal.js-plugins/chalkboard/plugin.js
+    - plugin/reveal.js-plugins/customcontrols/plugin.js
+    - plugin.js
+    menu:
+      themes: true
+      transitions: true
+      transition: 'slide'
 ---
 <!-- .slide: data-background="#1c1c1c" -->
 
@@ -277,12 +287,12 @@ $\hspace{10pt}$
 
 5. Evaluate MH criteria and assign the next state in the chain according to
 
-   <div id="note" style="width:70%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">
+   <div id="note" style="width:65%;align:center;text-align:center;padding:5px; color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);padding:5px;">
 
    $\mathbf{x}_{i+1}\gets
    \begin{cases}
-     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ w/ prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \hspace{2pt}\color{#00C30C}{\small{\text{ accept}}}\\\\
-     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ w/ prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{11pt}❌ \hspace{5pt}\color{#EC0300}{\small{\text{reject}}}
+     \color{#AE81FF}{\mathbf{x}^{\ast}} \small{\text{ w/ prob }} A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{25pt}✅ \\\\
+     \color{#00CCFF}{\mathbf{x}} \hspace{14px}\small{\text{ w/ prob }} 1 - A(\color{#AE81FF}{\xi^{\ast}}|\color{#00CCFF}{\xi}) \hspace{11pt}❌
      \end{cases}$
 
    </div>
@@ -350,6 +360,31 @@ $\hspace{10pt}$ <span id="red"> **Discrete:**</span>$\hspace{4pt}$ <span id="not
 
 <div id='dark'>
 
+## Loss Function
+
+<div style="font-size:0.9em;">
+
+- Maximize the <span id="blue">_expected squared charge difference_ </span>:
+  <div id="note"
+  style="color:rgb(255,255,255);padding:5px;background:rgba(255,255,255,0.15);width:70%;">
+  \[\begin{equation}
+  \mathcal{L}(\theta) = \color{#228BE6}{\mathbb{E}_{p(\xi)}}
+  \left[-\color{#FA5252}{{\delta Q}}^{2}_{\color{#FA5252}{\mathbb{R}}}(\xi', \xi)\cdot
+  A(\xi'|\xi)\right]
+  \end{equation}\]
+  </div>
+- Where $\color{#FA5252}{\delta Q_{\mathbb{R}}}$ is the <span id="red">tunneling rate</span>
+  $$\color{#FA5252}{\delta Q_{\mathbb{R}}}(\xi',\xi)=\left|Q_{\mathbb{R}}(x') - Q_{\mathbb{R}}(x)\right|$$
+- And $A(\xi'|\xi)$ is probability of accepting the proposal configuration $\xi'$.
+  $$ A(\xi'|\xi) = \min\left(1, \frac{p(\xi')}{p(\xi)}\left|\frac{\partial \xi'}{\partial \xi^{T}}\right|\right\)$$
+
+</div>
+
+---
+<!-- .slide: data-background="#1c1c1c" -->
+
+<div id='dark'>
+
 #### Integrated Autocorrelation time: <span style="color:#FF2052">$\tau_{\mathrm{int}}$</span>
 
 <div id="left" style="margin-left:6%;max-width:75%;">
@@ -408,6 +443,38 @@ single L2HMC trajectory.
 </span>
 
 </div>
+
+---
+<!-- .slide: data-background="#1c1c1c" -->
+<div id="dark">
+
+## Interpretation
+
+![](assets/plaqsf_ridgeplot.svg) <!-- .element width="48%" align="center" -->
+![](assets/Hf_ridgeplot.svg)  <!-- .element width="48%" align="center" -->
+
+<div class="row">
+
+<div class="column" style="font-size:0.6em;margin-left:11%;max-width:55%;text-align:center;">
+
+<div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
+
+Average plaquette $\langle x_{P}\rangle$ vs lf step
+
+</div>
+
+</div>
+<div class="column" style="font-size:0.6em;margin-left:12%;text-align:center;margin-right:4%;">
+
+<div id="note" style="color:rgb(255,255,255);background-color:rgba(255,255,255,0.15);margin-top:-40px;">
+
+Average energy $H - \sum\log|\mathcal{J}|$
+</div>
+</div>
+</div>
+<small><b>Fig.</b> Illustration of how the trained model artificially
+increases the energy towards the middle of the trajectory, allowing the sampler
+to tunnel between isolated sectors.
 
 ---
 <!-- .slide: data-background="#1c1c1c" -->
@@ -550,31 +617,6 @@ DE-AC02-06CH11357.
 
 </div>
 
----
-<!-- .slide: data-background="#1c1c1c" -->
-
-<div id="dark">
-
-
-### Network Architectures
-
-<img src="assets/dynamics_xnet0.png"  align=center width=45%>
-
-</div>
-
----
-<!-- .slide: data-background="#1c1c1c" -->
-
-<div id="dark">
-
-
-### Network Architectures
-
-<img src="assets/dynamics_vnet.png"  align=center width=36%>
-
-</div>
-
----
 <style>
 
 :root {

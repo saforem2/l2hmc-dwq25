@@ -1,4 +1,4 @@
 options.plugins.push(
     RevealChalkboard,
-    RevealMenu
+    RevealMenu,
 )
