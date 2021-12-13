@@ -645,7 +645,7 @@ DE-AC02-06CH11357.
     --r-selection-background-color: rgba(255, 255, 0, 0.15);
     --r-selection-color: rgb(255, 255, 0);
     --r-main-color: #222;
-    --r-heading-color: #222;
+    --r-heading-color: #f2f2f2;
     --r-background-color: #fff;
     -webkit-font-smoothing:subpixel-antialiased;
 }
