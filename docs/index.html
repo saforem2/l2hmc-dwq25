@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://kit.fontawesome.com/9cf051aca7.js" crossorigin="anonymous"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
@@ -11,8 +10,6 @@
     <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/github.css" />
     <link rel="stylesheet" href="./_assets/custom/custom_theme.css" />
-    <link rel="stylesheet" href="./plugin/reveal.js-plugins/customcontrols/style.css" />
-    <link rel="stylesheet" href="./plugin/reveal.js-plugins/chalkboard/style.css" />
 
   </head>
   <body>
@@ -88,7 +85,7 @@ $\hspace{10pt}$
 
 </div>
 
-</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c"-->
+</script></section><section  data-markdown><script type="text/template"><!-- .slide: data-background="#1c1c1c" data-state="make-it-pop"-->
 
 <div id='dark' style="vertical-align:center;">
 
@@ -816,9 +813,6 @@ DE-AC02-06CH11357.
     <script src="./plugin/zoom/zoom.js"></script>
     <script src="./plugin/notes/notes.js"></script>
     <script src="./plugin/math/math.js"></script>
-    <script src="./plugin/reveal.js-menu/menu.js"></script>
-    <script src="./plugin/reveal.js-plugins/chalkboard/plugin.js"></script>
-    <script src="./plugin/reveal.js-plugins/customcontrols/plugin.js"></script>
     <script>
       function extend() {
         var target = {};
@@ -845,42 +839,8 @@ DE-AC02-06CH11357.
           RevealHighlight,
           RevealZoom,
           RevealNotes,
-          RevealMath,
-          RevealMenu,
-          RevealChalkboard,
-          RevealCustomControls,
-        ],
-        menu: {
-          "themes": true,
-          "transitions": true
-        },
-        customcontrols: {
-          controls: [
-            {
-              id: 'toggle-overview',
-              title: 'Toggle overview (O)',
-              icon: '<i class="fa fa-th"></i>',
-              action: 'Reveal.toggleOverview();'
-            },
-            {
-              icon: '<i class="fa fa-pen-square"></i>',
-              title: 'Toggle chalkboard (B)',
-              action: 'RevealChalkboard.toggleChalkboard();'
-            },
-            {
-              icon: '<i class="fa fa-pen"></i>',
-              title: 'Toggle notes canvas (C)',
-              action: 'RevealChalkboard.toggleNotesCanvas();'
-            }
-          ]
-        }
-    };
-
-      // options from URL query string
-      var queryOptions = Reveal().getQueryHash() || {};
-
-      var options = extend(defaultOptions, {"title":"l2hmc-qcd -- DWQ @ 25","controls":false,"progress":true,"history":true,"slideNumber":false,"transition":"slide","center":false,"margin":0.04,"theme":"black","highlightTheme":"github","scripts":["plugin/reveal.js-menu/menu.js","plugin/reveal.js-plugins/chalkboard/plugin.js","plugin.js"],"menu":{"themes":true,"transitions":true}}, queryOptions);
-    </script>
+          RevealMath
+        ]
       };
 
       // options from URL query string
