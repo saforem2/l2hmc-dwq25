@@ -32,7 +32,7 @@ revealOptions:
 
 <span style="font-size:0.8em;">
 
-[BNL &amp; RBRC: "DWQ @ 25"](https://indico.bnl.gov/event/13576/)
+[BNL &amp; RBRC: DWQ @ 25](https://indico.bnl.gov/event/13576/)
 
 December, 2021
 
@@ -184,7 +184,7 @@ $\hspace{10pt}$
 
 <div id='dark'>
 
-## Training Step
+## Algorithm
 
 <div class="column" style="width=100%;font-size:0.77em;">
 
@@ -212,8 +212,8 @@ $\hspace{10pt}$
 
    </div>
 
-4. Evaluate the **loss function** $\mathcal{L}\gets
-   \mathcal{L}_{\theta}(\color{#AE81FF}{\xi^{\ast}}, \color{#00CCFF}{\xi})$ and backpropagate gradients
+4. <span id="red">**if training**</span>: evaluate the **loss function** $\mathcal{L}\gets
+   \mathcal{L}_{\theta}(\color{#AE81FF}{\xi^{\ast}}, \color{#00CCFF}{\xi})$ and backprop
 
 5. Evaluate MH criteria and assign the next state in the chain according to
 
